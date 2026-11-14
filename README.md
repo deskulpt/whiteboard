@@ -1,4 +1,4 @@
-# Whiteboard — Interview Whiteboard & Framework Studio
+# Whiteboard — Whiteboard & Framework Studio
 
 A free, no-signup, no-key browser whiteboard for practising product, design, engineering, data, marketing and operations interviews — and for thinking through any real problem with a proven framework.
 
