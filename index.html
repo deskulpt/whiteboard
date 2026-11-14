@@ -404,6 +404,32 @@
     .tpl-sheet{padding:16px 14px 12px}
     .fill-panel{top:auto;bottom:150px;left:8px;right:8px;width:auto;max-height:56%}
   }
+
+  /* ---------- Mobile: top buttons shrink to icons only ---------- */
+  @media (max-width:720px){
+    header{gap:6px;padding:8px}
+    .brand{font-size:15px;padding:4px 6px;gap:6px}
+    .timer{gap:4px;padding:3px 4px 3px 10px}
+    .timer .clock{font-size:16px;min-width:56px}
+    .timer select{min-height:32px;padding:4px 5px;font-size:12px;max-width:88px}
+    .timer button{width:34px;height:34px;min-width:34px;min-height:34px;padding:0;justify-content:center;gap:0;font-size:0;line-height:0}
+    .timer button svg.icon{width:16px;height:16px}
+    /* header action buttons: icon only (labels stay in title / aria-label) */
+    header > .hbtn, header > .save-wrap > .hbtn{
+      width:38px;height:38px;min-width:38px;min-height:38px;padding:0;justify-content:center;gap:0;font-size:0;line-height:0;
+    }
+    header > .hbtn svg.icon, header > .save-wrap > .hbtn svg.icon{width:19px;height:19px}
+    #saveBtn svg.icon:last-child{display:none}
+    /* problem pickers + suggested-template button sit tighter, template is icon-only */
+    .problem-actions{flex:1 1 100%;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center}
+    .problem-actions label{margin:0;flex:0 0 auto}
+    .problem-actions select{flex:1 1 150px;min-width:0;max-width:none}
+    .problem-actions .hbtn{width:38px;height:38px;min-width:38px;min-height:38px;padding:0;justify-content:center;gap:0;font-size:0;line-height:0}
+    /* board corner actions: icon only too */
+    .boardbar{padding:4px;gap:4px}
+    .boardbar button{width:36px;height:36px;min-width:36px;padding:0;display:inline-flex;align-items:center;justify-content:center;gap:0;font-size:0;line-height:0}
+    .boardbar button svg.icon{width:17px;height:17px}
+  }
 </style>
 </head>
 <body>
@@ -437,19 +463,19 @@
       <option value="0">Stopwatch</option>
     </select>
     <button id="timerToggle" class="primary"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 14 8-14 8V4z"/></svg><span>Start</span></button>
-    <button id="timerReset">Reset</button>
+    <button id="timerReset" title="Reset timer" aria-label="Reset timer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span>Reset</span></button>
   </div>
 
-  <button class="hbtn primary" id="diagramsBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="7" height="7" rx="1.5"/><rect x="15" y="14" width="7" height="7" rx="1.5"/><path d="M9 6.5h6a2 2 0 0 1 2 2V14"/><path d="m14 11 3 3 3-3"/></svg> Diagrams</button>
-  <button class="hbtn primary" id="templatesBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Smart templates</button>
-  <button class="hbtn" id="frameworkBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg> Framework</button>
-  <button class="hbtn" id="mediaBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg> Emoji &amp; GIFs</button>
-  <button class="hbtn" id="uploadBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg> Add image / file</button>
-  <button class="hbtn" id="aiBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg> AI connect</button>
-  <button class="hbtn" id="grillBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg> Grill me · free</button>
-  <button class="hbtn" id="mdBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> MD file</button>
+  <button class="hbtn primary" id="diagramsBtn" title="Diagrams" aria-label="Diagrams"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="7" height="7" rx="1.5"/><rect x="15" y="14" width="7" height="7" rx="1.5"/><path d="M9 6.5h6a2 2 0 0 1 2 2V14"/><path d="m14 11 3 3 3-3"/></svg> Diagrams</button>
+  <button class="hbtn primary" id="templatesBtn" title="Smart templates" aria-label="Smart templates"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Smart templates</button>
+  <button class="hbtn" id="frameworkBtn" title="Framework" aria-label="Framework"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg> Framework</button>
+  <button class="hbtn" id="mediaBtn" title="Emoji &amp; GIFs" aria-label="Emoji and GIFs"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg> Emoji &amp; GIFs</button>
+  <button class="hbtn" id="uploadBtn" title="Add image / file" aria-label="Add image or file"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg> Add image / file</button>
+  <button class="hbtn" id="aiBtn" title="AI connect" aria-label="AI connect"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg> AI connect</button>
+  <button class="hbtn" id="grillBtn" title="Grill me · free" aria-label="Grill me, free"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg> Grill me · free</button>
+  <button class="hbtn" id="mdBtn" title="MD file" aria-label="Markdown file"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> MD file</button>
   <div class="save-wrap">
-    <button class="hbtn" id="saveBtn" aria-haspopup="true" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Save <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <button class="hbtn" id="saveBtn" aria-haspopup="true" aria-expanded="false" title="Save" aria-label="Save"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Save <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     <div class="save-menu" id="saveMenu" hidden role="menu" aria-label="Save options">
       <button id="savePngBtn" role="menuitem"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> <span>Download PNG<small>The board as a picture — best for sharing or slides.</small></span></button>
       <button id="saveJpgBtn" role="menuitem"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> <span>Download JPEG<small>Smaller file, white background.</small></span></button>
@@ -465,7 +491,7 @@
       <button id="importMdBtn" role="menuitem"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg> <span>Insert a Markdown file…<small>Load a .md framework file back in — its sections refill the matching template on the board.</small></span></button>
     </div>
   </div>
-  <button class="hbtn" id="presentBtn" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> Present mode</button>
+  <button class="hbtn" id="presentBtn" aria-pressed="false" title="Present mode" aria-label="Present mode"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> Present mode</button>
   <button class="hbtn" id="themeToggle" aria-pressed="false" aria-label="Switch to dark mode"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><span>Dark mode</span></button>
   <input type="file" id="fileInput" hidden multiple accept="image/*,.gif,.json,.txt,.md,.csv,.pdf">
   <input type="file" id="importInput" hidden accept=".json,image/*">
@@ -511,7 +537,7 @@
     <select id="problemSelect" aria-label="Choose a problem">
       <option value="0">Abandoned checkout</option>
     </select>
-    <button class="hbtn smart" id="smartTplBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Template for this problem: Checkout Flow</button>
+    <button class="hbtn smart" id="smartTplBtn" title="Template for this problem" aria-label="Template for this problem"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Template for this problem: Checkout Flow</button>
   </div>
   <aside class="framework" id="framework">
     <h2>Say it in this order</h2>
@@ -624,9 +650,9 @@
   </aside>
 
   <div class="boardbar">
-    <button id="undoBtn" disabled><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg> Undo</button>
-    <button id="redoBtn" disabled><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"/></svg> Redo</button>
-    <button id="clearBtn" class="danger">Clear board</button>
+    <button id="undoBtn" disabled title="Undo" aria-label="Undo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg> Undo</button>
+    <button id="redoBtn" disabled title="Redo" aria-label="Redo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"/></svg> Redo</button>
+    <button id="clearBtn" class="danger" title="Clear board" aria-label="Clear board"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg><span>Clear board</span></button>
   </div>
 </div>
 
@@ -1150,11 +1176,11 @@
   var clearArmed = false, clearTimer = null;
   clearBtn.addEventListener('click', function(){
     if (!clearArmed) {
-      clearArmed = true; clearBtn.textContent = 'Tap again to clear';
-      clearTimer = setTimeout(function(){ clearArmed = false; clearBtn.textContent = 'Clear board'; }, 2600);
+      clearArmed = true; clearBtn.querySelector('span').textContent = 'Tap again to clear'; clearBtn.title = 'Tap again to clear the board';
+      clearTimer = setTimeout(function(){ clearArmed = false; clearBtn.querySelector('span').textContent = 'Clear board'; clearBtn.title = 'Clear board'; }, 2600);
       return;
     }
-    clearTimeout(clearTimer); clearArmed = false; clearBtn.textContent = 'Clear board';
+    clearTimeout(clearTimer); clearArmed = false; clearBtn.querySelector('span').textContent = 'Clear board'; clearBtn.title = 'Clear board';
     pushHistory();
     ctx.save(); ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,canvas.width,canvas.height); ctx.restore();
   });
@@ -2115,6 +2141,8 @@
     var t = tplById((problems[currentProblem] && problems[currentProblem].tpl) || 'interview');
     smartBtn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Template for this problem: ' + t.name;
     smartBtn.dataset.tpl = t.id;
+    smartBtn.title = 'Template for this problem: ' + t.name;
+    smartBtn.setAttribute('aria-label', 'Template for this problem: ' + t.name);
   }
   smartBtn.addEventListener('click', function(){ applyTemplate(tplById(smartBtn.dataset.tpl)); });
   problemSelect.addEventListener('change', syncSmartBtn);

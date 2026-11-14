@@ -1,4 +1,4 @@
-# Whiteboard — Whiteboard & Framework Studio
+# Whiteboard — Interview Whiteboard & Framework Studio
 
 A free, no-signup, no-key browser whiteboard for practising product, design, engineering, data, marketing and operations interviews — and for thinking through any real problem with a proven framework.
 
@@ -23,6 +23,7 @@ A free, no-signup, no-key browser whiteboard for practising product, design, eng
 - **AI connect** — one click copies a ready-made brief to Gemini, Claude, Grok, Perplexity, ChatGPT or Muse, and an in-page MCP manifest (`window.WhiteboardMCP`) lets an agent working inside the tab fill frameworks for you.
 - **Save your work** — PNG, JPEG, a re-openable `.json` board file, copy-to-clipboard, or a Google Drive upload.
 - **Light mode by default, with a dark-mode toggle.**
+- **Mobile-friendly** — on phones the whole toolbar collapses to icons so the board keeps the space, and the industry/role/problem pickers wrap inside the screen width.
 
 ## Demo — try it in 2 minutes
 
